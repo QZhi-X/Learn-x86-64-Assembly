@@ -1,0 +1,43 @@
+; Learn ASM
+; Lesson 1: A simple "Hello, world" program
+
+BITS 16
+
+MOV AX, 0xB800
+MOV ES, AX
+
+MOV BYTE [ES:0x00], 'H'
+MOV BYTE [ES:0x01], 0x03
+MOV BYTE [ES:0x02], 'e'
+MOV BYTE [ES:0x03], 0x03
+MOV BYTE [ES:0x04], 'l'
+MOV BYTE [ES:0x05], 0x03
+MOV BYTE [ES:0x06], 'l'
+MOV BYTE [ES:0x07], 0x03
+MOV BYTE [ES:0x08], 'o'
+MOV BYTE [ES:0x09], 0x03
+
+MOV BYTE [ES:0x0A], ','
+MOV BYTE [ES:0x0B], 0x03
+MOV BYTE [ES:0x0C], ' '
+MOV BYTE [ES:0x0D], 0x03
+
+MOV BYTE [ES:0x0E], 'w'
+MOV BYTE [ES:0x0F], 0x03
+MOV BYTE [ES:0x10], 'o'
+MOV BYTE [ES:0x11], 0x03
+MOV BYTE [ES:0x12], 'r'
+MOV BYTE [ES:0x13], 0x03
+MOV BYTE [ES:0x14], 'l'
+MOV BYTE [ES:0x15], 0x03
+MOV BYTE [ES:0x16], 'd'
+MOV BYTE [ES:0x17], 0x03
+
+MOV BYTE [ES:0x18], '!'
+MOV BYTE [ES:0x19], 0x03
+
+JMP NEAR $
+
+TIMES 510-($-$$) DB 0x00
+
+DW 0xAA55

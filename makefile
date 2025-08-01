@@ -21,7 +21,7 @@ $(BINARY_DIR)/%.bin: $(SOURCE_DIR)/%.asm | $(BINARY_DIR)
 	$(ASM) $(ASM_FLAGS) $< -o $@
 
 gen_image:
-	dd if=/dev/zero of=test bs=1024 count=2048
+	dd if=/dev/zero of=$(DISK_IMAGE) bs=1024 count=64
 
 	dd if=$(BINARY_DIR)/boot.bin of=$(DISK_IMAGE) bs=512 count=1 conv=notrunc
 
